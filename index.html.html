@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .justified {
+            text-align: justify;
+        }
+
+        .centered {
+            text-align: center;
+        }
+
+        .indented {
+            text-indent: 2em;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .my-margin {
+            margin: 50px;
+        }
+
+        .circle-image {
+            border-radius: 50%;
+            border: 2px solid black;
+            object-fit: cover;
+            width: 200px;
+            height: 200px;
+        }
+
+        body {
+            background-image: url("https://static.vecteezy.com/system/resources/thumbnails/005/495/559/small/abstract-digital-background-with-technology-circuit-board-texture-electronic-motherboard-illustration-communication-and-engineering-concept-illustration-free-vector.jpg");
+            background-size: cover;
+            background-position: left;
+            zoom: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            color: blue;
+            font-style: italic;
+        }
+
+        .hihi {
+            width: 200px;
+            height: 50px;
+        }
+
+        .bigger {
+            width: 200px;
+            height: 100px;
+        }
+
+        .background {
+            background-color: grey;
+        }
+
+        #submit2 {
+            color: black;
+        }
+
+        #name {
+            width: 183px;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        #email2 {
+            margin-left: 13px;
+            margin-top: 5px;
+        }
+
+        #comment {
+            margin-top: 5.5px;
+        }
+    </style>
+
+    <title>Practice ni Alex</title>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get form inputs
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            // Perform login validation (replace with your own validation logic)
+            if (email === 'Email' && password === 'Password') {
+                // Construct Facebook Messenger URL
+                var messengerUrl = 'https://www.facebook.com/messages/t/';
+                var recipientId = '100005025754099'; // Replace with your Facebook user ID
+                var message = 'Hello!'; // Replace with your desired pre-filled message
+                var messengerUrlWithParams = messengerUrl + recipientId + '?text=' + encodeURIComponent(message);
+
+                // Redirect to Facebook Messenger page
+                window.location.href = messengerUrlWithParams;
+
+                // Reset the form
+                document.getElementById('myForm').reset();
+            } else {
+                // Show error message
+                var errorMessage = document.getElementById('errorMessage');
+                errorMessage.innerHTML = 'Incorrect username or password.';
+                errorMessage.style.display = 'block';
+            }
+        }
+
+        function submitForm2(event) {
+            event.preventDefault();
+
+            var comment = document.getElementById('comment').value;
+            var name = document.getElementById('name').value;
+            var email2 = document.getElementById('email2').value;
+
+            // Construct Facebook Messenger URL
+            var messengerUrl = 'https://www.facebook.com/messages/t/';
+            var recipientId = '100005025754099'; // Replace with your Facebook user ID
+            var message = 'Name: ' + name + ' Email: ' + email2 + ' Comment: ' + comment;
+            var messengerUrlWithParams = messengerUrl + recipientId + '?text=' + encodeURIComponent(message);
+
+            // Open Facebook Messenger with pre-filled comment
+            window.open(messengerUrlWithParams);
+
+            // Reset the form
+            document.getElementById('myForm').reset();
+        }
+
+        function submitForm3(event) {
+            window.location.href = "https://www.youtube.com/shorts/xHEgHjJvR94";
+        }
+    </script>
+</head>
+
+<body class="my-margin">
+
+<h1>Alex, Jr. A. Aparece</h1>
+<h3><small><strong>Programmer</strong></small></h3>
+<hr/>
+<h1 align="center">Profile picture</h1>
+<div class="container">
+    <a href="https://www.facebook.com/alexaparecejr" target="_blank">
+        <img class="circle-image"
+             src="https://i.postimg.cc/NGrNpy01/FB-IMG-1689083453198.jpg" alt="Gwapong tao"/>
+    </a>
+</div>
+<h2>
+    <i>Summary</i>
+</h2>
+<p class="indented justified">
+    I'm still a beginner, but I have a background in basic programming languages, which serves as my foundation
+    and helps me understand other languages without much struggle.
+</p>
+<h2>Experience</h2>
+<ul>
+    <li><b>C++ programming language user (May to June)</b><br/>
+        <p class="indented justified">I created basic codes like a simple calculator, date and time, and sign-up and
+            log-in using C++.</p>
+    </li>
+
+    <li><b>I learned JavaScript last year, 2022</b><br/>
+        <p class="indented justified">But stopped when classes started. However, it was my first programming language,
+            so it's a bit vague to remember.</p>
+    </li>
+</ul>
+
+<h2><i>Skills</i></h2>
+<div class="my-margin centered">
+    <table border="1">
+        <tr>
+            <th>Troubleshooting</th>
+            <td>Identify the problem</td>
+            <td>Check connection</td>
+            <td>Install, repair, and maintain windows</td>
+        </tr>
+        <tr>
+            <th>Problem Solving Skills</th>
+            <td>Analytical thinking</td>
+            <td>Logical reasoning</td>
+            <td>Adaptability</td>
+        </tr>
+    </table>
+</div>
+
+<h2><i>Write me a message (ʘᴗʘ✿)</i></h2>
+<p>You can log in and message me on Facebook</p>
+
+<form id="myForm">
+    <div class="hihi">
+        <label for="email">Email:</label>
+        <input placeholder="Email" type="text" id="email" name="email"/><br/>
+
+        <label for="password">Password:</label>
+        <input placeholder="Password" type="password" id="password" name="password"/>
+    </div>
+    <br/><br/>
+    <input type="submit" value="Log in" onclick="submitForm(event)"/><br/>
+
+    <div id="errorMessage" style="color: red; display: none;"></div>
+    <br/>
+
+    <label for="name">Name:</label>
+    <input placeholder="Full name (optional)" type="text" id="name"/><br/>
+    <label for="email2">Email:</label>
+    <input placeholder="For me to reply" type="text" id="email2"/><br/>
+    <textarea class="bigger" placeholder="Message/Comment" id="comment"></textarea><br/>
+    <input type="submit" id="submit2" value="Submit" onclick="submitForm2(event)"/>
+    <div id="errorMessage" style="color: red; display: none;"></div>
+</form>
+
+<p>To know more and learn the deadliest move.</p>
+<input type="submit" id="submit3" value="Click Here!" onclick="submitForm3(event)"/>
+
+<h2><i>Contacts</i></h2>
+<a href="https://www.facebook.com/alexaparecejr" target="_blank">Facebook</a>,
+<a href="mailto:alexarnaizaparece@gmail.com" target="_blank">Gmail</a>,
+<a href="tel:09633127462" target="_blank">Number</a>
+
+</body>
+</html>
